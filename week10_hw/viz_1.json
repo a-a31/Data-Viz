@@ -1,0 +1,29 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A scatterplot showing horsepower and miles per gallons for various cars.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/a-a31/Data-Viz/main/key_stats.csv"
+  },
+  "mark": {"type": "point"},
+  "title": "Distance Covered Overall against Minutes on Pitch",
+  "width": 700,
+  "height": 600,
+  "encoding": {
+    "x": {
+      "field": "distance_covered",
+      "type": "quantitative",
+      "title": "Distance Covered"
+    },
+    "y": {
+      "field": "minutes_played",
+      "type": "quantitative",
+      "title": "Minutes Played"
+    },
+    "tooltip": [
+      {"field": "distance_covered", "type": "quantitative"},
+      {"field": "minutes_played", "type": "quantitative"},
+      {"field": "player_name", "type": "nominal"}
+    ]
+  },
+  "config": {}
+}

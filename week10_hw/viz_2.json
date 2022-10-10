@@ -1,0 +1,93 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A bubbleplot showing horsepower on x, miles per gallons on y, and binned acceleration on size.",
+  "width": 700,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/a-a31/Data-Viz/main/key_stats.csv"
+  },
+  "title":"Goals Scored based on Matches and minutes played",
+  "params": [
+    {
+      "name": "position_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "Forward", "Midfielder", "Defender"],
+        "labels": ["Show All", "Forward", "Midfielder", "Defender"],
+        "name": "Select Player Position"
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "position_selection == null || datum.position == position_selection"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "match_played",
+      "type": "quantitative",
+      "title": "Matches Played"
+    },
+    "y": {
+      "field": "minutes_played",
+      "type": "quantitative",
+      "title": "Minutes Played"
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "circle"},
+      "encoding": {
+        "size": {
+          "field": "goals",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [1, 5, 10, 15, 20],
+            "range": [10, 50, 150, 300, 500]
+          },
+          "legend": {"format": ".1s"}
+        },
+        "color": {"field": "club",
+                  "type": "nominal",
+                  "legend": {"clipHeight":20, "columns":2}},
+        "opacity": {"value": 0.6},
+        "tooltip": [
+          {"field": "player_name", "type": "nominal", "title": "Player"},
+          {"field": "club", "type": "nominal"},
+          {"field": "goals", "type": "quantitative"},
+          {"field": "assists", "type": "quantitative"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 10,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "player_name", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['player_name'] == 'Benzema' || datum['player_name'] == 'Salah' || datum['player_name'] == 'Mahrez' || datum['player_name'] == 'Lewandowski' || datum['player_name'] == 'Renan Lodi'||  datum['player_name'] == 'De Bruyne'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "player_name", "type": "nominal", "title": "Player"},
+          {"field": "club", "type": "nominal"},
+          {"field": "goals", "type": "quantitative"},
+          {"field": "assists", "type": "quantitative"}
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
