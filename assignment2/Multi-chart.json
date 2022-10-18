@@ -1,0 +1,78 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Age vs Physical Ratings",
+    "data": {
+      "url": "https://raw.githubusercontent.com/a-a31/Data-Viz/main/assignment2/new_sample_data.csv"
+    },
+    "vconcat": [
+      {
+        "encoding": {
+          "color": {
+            "condition": {
+              "param": "brush",
+              "title": "Position",
+              "field": "club_position",
+              "type": "nominal",
+              "scale": {
+                "domain": ["ST", "AM", "CB", "MID", "CDM", "GK"],
+                "range": [
+                  "green",
+                  "blue",
+                  "lightgreen",
+                  "darkblue",
+                  "orange",
+                  "yellow"
+                ]
+              }
+            },
+            "value": "lightgray"
+          },
+          "size": {
+            "title": "Height",
+            "field": "height_cm",
+            "scale": {"domain": [150, 210]},
+            "type": "quantitative"
+          },
+          "y": {"field": "age", "title": "Age", "type": "quantitative"},
+          "x": {"title": "Physical Rating", "field": "physic", "type": "quantitative"}
+        },
+        "width": 600,
+        "height": 300,
+        "mark": "point",
+        "params": [
+          {"name": "brush", "select": {"type": "interval", "encodings": ["x"]}}
+        ],
+        "transform": [{"filter": {"param": "click"}}]
+      },
+      {
+        "encoding": {
+          "color": {
+            "condition": {
+              "param": "click",
+              "field": "club_position",
+              "scale": {
+                "domain": ["ST", "AM", "CB", "MID", "CDM", "GK"],
+                "range": [
+                  "green",
+                  "blue",
+                  "lightgreen",
+                  "darkblue",
+                  "orange",
+                  "yellow"
+                ]
+              }
+            },
+            "value": "lightgray"
+          },
+          "x": {"aggregate": "count"},
+          "y": {"title": "Positions", "field": "club_position"}
+        },
+        "width": 600,
+        "mark": "bar",
+        "params": [
+          {"name": "click", "select": {"type": "point", "encodings": ["color"]}}
+        ],
+        "transform": [{"filter": {"param": "brush"}}]
+      }
+    ]
+  }

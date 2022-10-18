@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Top 10 Overall Rating",
+  "width": 400,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/a-a31/Data-Viz/main/assignment2/top_10_data/overall_top_10.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "height": 5.7,
+        "binSpacing": 0,
+        "color": "#dd7825",
+        "cursor": "pointer",
+        "stroke": "white"
+      }
+    },
+    {
+      "mark": {"type": "circle", "size":200}
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "xOffset": 32,
+        "aria": false,
+        "fontSize": 15,
+        "fontWeight": "bold"
+      },
+      "encoding": {"text": {"field": "overall", "type": "quantitative"}}
+    }
+  ],
+  "encoding": {
+    "x": {"field": "overall", "type": "quantitative", "axis": null},
+    "y": {
+      "field": "short_name",
+      "type": "nominal",
+      "sort": {"field": "overall", "op": "min", "order": "descending"}
+    }
+  }
+}

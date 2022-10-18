@@ -1,0 +1,53 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 300,
+    "title": "Overall Rating vs Value",
+    "data": {
+      "url": "https://raw.githubusercontent.com/a-a31/Data-Viz/main/assignment2/age_exp_clean_data.csv"
+    },
+  
+    "params": [
+  
+    ],
+  
+    "layer": [
+      {
+        "mark":"circle",
+        "params": [
+          {
+            "name": "Position",
+            "select": {"type":"point", "fields": ["club_pos"]},
+            "bind":"legend"
+          }
+        ],
+        "encoding": {
+          "x":{
+            "field":"overall",
+            "type": "quantitative"
+          },
+          "y":{
+            "field":"value_eur",
+            "type": "quantitative"
+          },
+          "color":{
+            "field":"club_position",
+            "type": "nominal"
+          },
+          "tooltip":[
+            {"field":"short_name", "title": "Name"},
+            {"field":"age", "title":"Age"},
+            {"field":"value_eur", "title": "Valued"},
+            {"field":"club_position", "title": "Position"},
+            {"field": "club_name", "title": "Club"}
+          ],
+          "opacity":{
+            "value":0.5
+          }
+          
+        },
+        "transform": [{"filter": "datum['age'] > 0"}],
+        "transform": [{"filter": "datum['value_eur'] > 0"}]
+      }
+    ]
+  }

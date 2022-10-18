@@ -1,0 +1,46 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A ranged dot plot that uses 'layer' to convey changing life expectancy for the five most populous countries (between 1955 and 2000).",
+    "width":300,
+    "height":300,
+    "data": {"url": "https://raw.githubusercontent.com/a-a31/Data-Viz/main/assignment2/ranged_data.csv"},
+    "layer": [
+      {
+        "mark":{
+          "type": "point",
+          "color":"blueviolet"
+        },
+        "encoding": {
+          "x": {
+            "field":"overall",
+            "type":"quantitative"
+          },
+          "y": {
+            "field":"short_name",
+            "type":"nominal"
+          }
+        }
+      },
+  
+      {
+        "mark":{
+          "type": "point",
+          "color":"aquamarine"
+        },
+        "encoding": {
+          "x":{
+            "field":"potential",
+            "type": "quantitative"
+          },
+          "y":{
+            "field":"short_name",
+            "type": "nominal"
+          }
+        }
+      }
+  
+    
+    ]
+    }
+  
+  
