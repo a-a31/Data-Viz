@@ -1,0 +1,125 @@
+.chart{
+    margin: auto;
+    width: 50%;
+    border: 3px solid #b44fee;
+    padding: 10px;
+}
+
+#map_chart{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    align-items: center;
+    border: 2px solid #181363;
+}
+
+
+
+
+#lollipop_top_10{
+    margin: auto;
+    width: 50%;
+    border: 3px solid #b44fee;
+    padding: 10px;
+    align-items: center;
+}
+
+#scatter_plot{
+    margin: auto;
+    width: 50%;
+    border: 3px solid #b44fee;
+    padding: 10px;
+    align-items: center;
+}
+
+#multi_plot{
+    margin: auto;
+    width: 50%;
+    border: 3px solid #b44fee;
+    padding: 10px;
+    align-items: center;
+}
+
+#potential{
+    margin: auto;
+    width: 50%;
+    border: 3px solid #b44fee;
+    padding: 10px;
+    align-items: center;
+}
+
+.intro{
+    margin: auto;
+    width: 50%;
+    margin-top: 30px;
+    margin-bottom: 5%;
+    padding: 10px;
+}
+
+.intro .part3{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: sans-serif;
+    text-align: center;
+    color: rgb(77, 13, 81);
+    font-weight: bolder;
+    font-size: larger;
+    border-radius: 2%;
+}
+
+.titleborder{
+    border: 8px solid #181363;
+    background-color: rgb(199, 203, 207);
+    border-radius: 2%;
+}
+
+.part1{
+    font-family: sans-serif;
+    text-align: center;
+}
+.part2{
+    font-family: sans-serif;
+    margin-top: 5%;
+    text-align: justify;
+    
+    
+}
+
+
+body{
+    background: #a896c5;
+}
+
+.imagee{
+    width: 45%;
+    height: 10%x;
+}
+.title{
+    margin: auto;
+    width: 50%;
+    margin-top: 20px;
+    padding: 5px;
+    font-family: sans-serif;
+}
+
+  .container {
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .sub-text{
+    margin: auto;
+    width: 50%;
+    margin-top: 30px;
+    margin-bottom: 2%;
+    padding: 10px;
+}
+
+.chart-section{
+    margin: auto;
+    width: 50%;
+    margin-top: 20px;
+    padding: 5px;
+    border: 8px solid #181363;
+}

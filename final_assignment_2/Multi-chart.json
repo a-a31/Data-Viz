@@ -1,0 +1,92 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Is Age correlated to Physical Ratings?", "fontSize": 20},
+    "data": {
+      "url": "https://raw.githubusercontent.com/a-a31/Data-Viz/main/assignment2/new_sample_data.csv"
+    },
+    "vconcat": [
+      {
+        "encoding": {
+          "color": {
+            "condition": {
+              "param": "brush",
+              "title": "Position",
+              "field": "club_position",
+              "type": "nominal",
+              "scale": {
+                "domain": ["ST", "AM", "CB", "MID", "CDM", "GK"],
+                "range": [
+"#e41a1c",
+"#377eb8",
+"#4daf4a",
+"#984ea3",
+"#ff7f00"
+                ]
+              }
+            },
+            "value": "lightgray"
+          },
+          "size": {
+            "title":"Height (cm)",
+            "field": "height_cm",
+            "scale": {"domain": [150, 210]},
+            "type": "quantitative"
+          },
+          "y": {"field": "age", "title": "Age", "type": "quantitative", "axis":{
+            "labelFontSize":11,
+        "titleFontSize":15}},
+          "x": {"title": "Physical Rating", "field": "physic", "type": "quantitative", "axis":{
+            "labelFontSize":11,
+        "titleFontSize":15}},
+          "tooltip": [
+            {"field":"short_name", "type": "nominal", "title":"Name"},
+            {"field":"overall", "type": "quantitative", "title":"Overall"},
+            {"field":"club_name", "type": "nominal", "title":"Club"},
+            {"field":"age", "type": "quantitative", "title":"Age"},
+            {"field":"physic", "type": "quantitative", "title":"Physical Rating"}
+
+          ]
+        },
+        "width": 800,
+        "height": 300,
+        "mark": "point",
+        "params": [
+          {"name": "brush", "select": {"type": "interval", "encodings": ["x"]}}
+        ],
+        "transform": [{"filter": {"param": "click"}}]
+      },
+      {
+        "encoding": {
+          "color": {
+            "condition": {
+              "param": "click",
+              "field": "club_position",
+              "scale": {
+                "domain": ["ST", "AM", "CB", "MID", "CDM", "GK"],
+                "range": [
+"#e41a1c",
+"#377eb8",
+"#4daf4a",
+"#984ea3",
+"#ff7f00"
+                ]
+              }
+            },
+            "value": "lightgray"
+          },
+          "x": {"aggregate": "count", "title":"Number of Players", "axis":{
+            "labelFontSize":11,
+        "titleFontSize":15}},
+          "y": {"title": "Positions", "field": "club_position", "axis":{
+            "labelFontSize":11,
+        "titleFontSize":15}}
+        },
+        "width": 800,
+        "mark": "bar",
+        "params": [
+          {"name": "click", "select": {"type": "point", "encodings": ["color"]}}
+        ],
+        "transform": [{"filter": {"param": "brush"}}]
+      }
+    ]
+  }

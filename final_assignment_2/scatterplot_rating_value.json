@@ -1,0 +1,67 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 700,
+  "title": {"text":"Overall Rating of Player vs Value", "fontSize":30, "align": "center", "dy":-10},
+  "data": {
+    "url": "https://raw.githubusercontent.com/a-a31/Data-Viz/main/assignment2/age_exp_clean_data.csv"
+  },
+
+  "params": [
+
+  ],
+
+  "layer": [
+    {
+      "mark":"circle",
+      "params": [
+        {
+          "name": "Position",
+          "select": {"type":"point", "fields": ["club_pos"]},
+          "bind":"legend"
+        }
+      ],
+      "encoding": {
+        "x":{
+          "field":"overall",
+          "type": "quantitative",
+          "axis":{
+            "tickCount":6,
+            "labelFontSize":13,
+            "titleFontSize":17
+          },
+          "title": "Overall Player Rating"
+        },
+        "y":{
+          "field":"value_eur",
+          "type": "quantitative",
+          "scale": {"type": "log"},
+          "axis":{
+            "tickCount":4,
+            "labelFontSize":13,
+            "titleFontSize":17
+          },
+          "title":"Value (Euros)"
+        },
+        "color":{
+          "field":"club_position",
+          "type": "nominal",
+          "title": "Position"
+        },
+        "tooltip":[
+          {"field":"short_name", "title": "Name"},
+          {"field":"age", "title":"Age"},
+          {"field":"value_eur", "title": "Valued"},
+          {"field":"club_position", "title": "Position"},
+          {"field": "club_name", "title": "Club"}
+        ],
+        "opacity":{
+          "value":0.5
+        }
+        
+      },
+      "transform": [{"filter": "datum['age'] > 0"}],
+      "transform": [{"filter": "datum['value_eur'] > 0"}]
+    }
+  ]
+}

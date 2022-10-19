@@ -1,0 +1,81 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "height": 500,
+    "title": {
+      "text": " How much potential do the top 10 most valued players have?",
+      "fontSize": 12
+    },
+    "width": "container",
+    "description": "A simple bar chart with embedded data.",
+    "data": {
+      "url": "https://raw.githubusercontent.com/a-a31/Data-Viz/main/assignment2/ranged_data.csv"
+    },
+    "layer": [{"mark": {
+      "type": "bar",
+      "size":10,
+      "color": "darkviolet"
+    }},
+    {
+        "transform": [
+          {"filter": "datum.short_name == 'R. Lukaku'"},
+          {
+            "calculate": "'Players with 0 values have reahced full potential'",
+            "as": "text_annotation"
+          }
+        ],
+        "mark": {"type": "text", "fontWeight": "bold", "dx": 225},
+        "encoding": {
+          "text": {"field": "text_annotation"},
+          "size": {"value": 11}
+        }
+      }
+    ],
+    
+    "encoding": {
+      "x": {
+        "field": "PDF",
+        "type": "quantitative",
+        "axis": {
+          "tickCount": 4
+        },
+        "title": "Potential Rating Improvement"
+      },
+      "y": {
+        "field": "short_name",
+        "type": "nominal",
+        "title": "Player Name"
+      },
+      "tooltip": [
+        {
+          "field": "short_name",
+          "type": "nominal",
+          "title": "Name"
+        },
+        {
+          "field": "overall",
+          "type": "quantitative",
+          "title": "Overall"
+        },
+        {
+          "field": "club_name",
+          "type": "nominal",
+          "title": "Club"
+        },
+        {
+          "field": "age",
+          "type": "quantitative",
+          "title": "Age"
+        },
+        {
+          "field": "potential",
+          "type": "quantitative",
+          "title": "Potential"
+        },
+        {
+          "field": "value_eur",
+          "type": "quantitative",
+          "title": "Value (Euros)"
+        }
+      ]
+    }
+  }
