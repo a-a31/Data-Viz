@@ -1,7 +1,7 @@
 .chart{
     margin: auto;
     width: 50%;
-    border: 3px solid #b44fee;
+    border: 2px solid #181363;
     padding: 10px;
 }
 
@@ -19,7 +19,7 @@
 #lollipop_top_10{
     margin: auto;
     width: 50%;
-    border: 3px solid #b44fee;
+    border: 2px solid #181363;
     padding: 10px;
     align-items: center;
 }
@@ -27,7 +27,7 @@
 #scatter_plot{
     margin: auto;
     width: 50%;
-    border: 3px solid #b44fee;
+    border: 2px solid #181363;
     padding: 10px;
     align-items: center;
 }
@@ -35,7 +35,7 @@
 #multi_plot{
     margin: auto;
     width: 50%;
-    border: 3px solid #b44fee;
+    border: 2px solid #181363;
     padding: 10px;
     align-items: center;
 }
@@ -43,7 +43,7 @@
 #potential{
     margin: auto;
     width: 50%;
-    border: 3px solid #b44fee;
+    border: 2px solid #181363;
     padding: 10px;
     align-items: center;
 }
@@ -87,7 +87,7 @@
 
 
 body{
-    background: #a896c5;
+    background: #d1c4e5;
 }
 
 .imagee{
