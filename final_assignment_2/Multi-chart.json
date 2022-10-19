@@ -47,7 +47,7 @@
 
           ]
         },
-        "width": 800,
+        "width": 500,
         "height": 300,
         "mark": "point",
         "params": [
@@ -81,7 +81,7 @@
             "labelFontSize":11,
         "titleFontSize":15}}
         },
-        "width": 800,
+        "width": 500,
         "mark": "bar",
         "params": [
           {"name": "click", "select": {"type": "point", "encodings": ["color"]}}
