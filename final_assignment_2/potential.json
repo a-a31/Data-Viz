@@ -3,7 +3,7 @@
     "height": 500,
     "title": {
       "text": " How much potential do the top 10 most valued players have?",
-      "fontSize": 12
+      "fontSize": 20
     },
     "width": "container",
     "description": "A simple bar chart with embedded data.",
@@ -26,7 +26,7 @@
         "mark": {"type": "text", "fontWeight": "bold", "dx": 225},
         "encoding": {
           "text": {"field": "text_annotation"},
-          "size": {"value": 11}
+          "size": {"value": 15}
         }
       }
     ],
@@ -43,7 +43,11 @@
       "y": {
         "field": "short_name",
         "type": "nominal",
-        "title": "Player Name"
+        "title": "Player Name",
+        "axis":{
+            "titleFontSize":15,
+            "labelFontSize":15
+        }
       },
       "tooltip": [
         {
